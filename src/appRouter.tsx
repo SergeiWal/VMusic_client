@@ -1,8 +1,9 @@
 import App from "./App";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Router, Routes } from "react-router-dom";
 import SongListContainer from "./usersPages/songsList/containers/song_list.container";
 import PlaylistsColectionContainer from "./usersPages/playlistList/playlist_collection.container";
 import PlaylistPageContainer from "./usersPages/playlist/playlist_page.container";
+import CreatePlaylistContainer from "./usersPages/createPlaylist/create_playlist.container";
 
 export default function AppRouter() {
   return (
@@ -31,17 +32,23 @@ export default function AppRouter() {
               <PlaylistsColectionContainer />
             </App>
           }
-        >
-          <Route
-            path=":id"
-            element={
-              <App>
-                <PlaylistPageContainer />
-              </App>
-            }
-          />
-        </Route>
-        <Route path="/create_playlist" element={<SongListContainer />} />
+        />
+        <Route
+          path="/playlists/:id"
+          element={
+            <App>
+              <PlaylistPageContainer />
+            </App>
+          }
+        />
+        <Route
+          path="/create_playlist"
+          element={
+            <App>
+              <CreatePlaylistContainer />
+            </App>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

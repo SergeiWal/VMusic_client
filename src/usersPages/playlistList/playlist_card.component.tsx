@@ -11,14 +11,12 @@ export default function PlaylistCard({
   playlist: { id, name },
 }: PlaylistCardProps) {
   return (
-    <Link to={`/playlists/${id}`}>
-      <Card sx={{ maxWidth: 345 }}>
+    <Link to={`/playlists/${id}`} className="buttonLink">
+      <Card sx={{ maxWidth: 345 }} className="playlistCard">
         <CardActionArea>
-          <AlbumSharpIcon fontSize="large" />
+          <AlbumSharpIcon style={{ fontSize: 48 }} />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {name}
-            </Typography>
+            <div className="playlistName">{name}</div>
           </CardContent>
         </CardActionArea>
       </Card>

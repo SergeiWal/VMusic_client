@@ -93,3 +93,53 @@ body::-webkit-scrollbar {
 .playlistsCollection::-webkit-scrollbar {
   display: none;
 }
+
+.buttonLink {
+  color: #000;
+  text-decoration: none;
+}
+
+.playlistCard {
+  padding: 15px 7px;
+}
+
+.playlistName {
+  font-size: 18px;
+}
+
+.playlistView {
+  margin: 90px 100px;
+}
+
+.playlistView > *.songsList {
+  margin: 10px 0;
+}
+
+.playlistHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 10px;
+  border-bottom: 2px solid #000;
+}
+
+.playlistsButtons > * {
+  margin: 0 5px;
+}
+
+.playlistsNameForm {
+  display: flex;
+  justify-content: center;
+  margin: 90px 100px;
+}
+
+.playlistInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  width: 400px;
+}
