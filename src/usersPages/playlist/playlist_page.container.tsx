@@ -11,7 +11,7 @@ export default function PlaylistPageContainer() {
   const params = useParams();
   const playlist_id = parseInt(params.id);
 
-  const { playlists, songs } = useAppSelector((state) => state);
+  const { playlists, playlistSongs } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const getPlaylist = () =>
@@ -24,18 +24,8 @@ export default function PlaylistPageContainer() {
   }, []);
 
   const deleteBtnHandler = () => {
-    console.log("Delete");
-    let playlist_index = -1;
-
-    playlists.forEach((playlist, index) => {
-      if (playlist.id === playlist_id) {
-        playlist_index = index;
-      }
-    });
-
-    if (playlist_index != -1) {
-      playlists.splice(playlist_index, 1);
-    }
+    let playlist_index = playlists.indexOf(playlist);
+    playlists.splice(playlist_index, 1);
 
     dispatch(deletePlaylistAction(playlist_id));
   };
@@ -43,7 +33,7 @@ export default function PlaylistPageContainer() {
   return (
     <PlaylistPage
       playlist={playlist}
-      songs={songs}
+      songs={playlistSongs}
       deleteBtnHandler={deleteBtnHandler}
     />
   );

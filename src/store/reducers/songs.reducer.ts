@@ -14,10 +14,8 @@ export default function songsReducer(
   action: PayloadAction<any>
 ) {
   switch (action.type) {
-    case getPlaylistsSongSucessAction.type:
     case getSongsSuccessAction.type:
       return [...action.payload];
-    case getPlaylistsSongFailedAction.type:
     case getSongsFailedAction.type:
       return state;
     default:

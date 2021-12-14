@@ -12,6 +12,10 @@ import {
   getPlaylistsFailedAction,
   getPlaylistsSuccessAction,
 } from "../../usersPages/playlistList/playlists.action";
+import {
+  updateNameFailedAction,
+  updateNameSuccessAction,
+} from "../../usersPages/updatePlaylist/update_playlist.actions";
 
 export type Playlist = {
   id: number;
@@ -27,6 +31,11 @@ export type CreatePayload = {
   user: number;
 };
 
+export type UpdateNamePayload = {
+  playlist_id: number;
+  name: string;
+};
+
 let playlistsBackup: Playlist[] = [];
 
 export default function PlaylistsReducer(
@@ -38,11 +47,13 @@ export default function PlaylistsReducer(
       return [...action.payload];
     case createPlaylistSuccessAction.type:
       return [...state, action.payload];
+    case updateNameSuccessAction.type:
     case deletePlaylistAction.type:
       playlistsBackup = [...state];
       return [...state];
     case deletePlaylistSuccessAction.type:
       return action.payload.status === "Success" ? state : [...playlistsBackup];
+    case updateNameFailedAction.type:
     case createPlaylistFailedAction.type:
     case deletePlaylistFailedAction.type:
     case getPlaylistsFailedAction.type:

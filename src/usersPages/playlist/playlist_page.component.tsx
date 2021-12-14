@@ -23,7 +23,7 @@ export default function PlaylistPage({
       <div className="playlistHeader">
         <div>{name}</div>
         <div className="playlistsButtons">
-          <Link to={"/playlists"} className="buttonLink">
+          <Link to={`/playlists/update/${id}`} className="buttonLink">
             <Button color="inherit">
               <SettingsIcon fontSize="large" />
             </Button>

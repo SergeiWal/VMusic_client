@@ -4,6 +4,7 @@ import SongListContainer from "./usersPages/songsList/containers/song_list.conta
 import PlaylistsColectionContainer from "./usersPages/playlistList/playlist_collection.container";
 import PlaylistPageContainer from "./usersPages/playlist/playlist_page.container";
 import CreatePlaylistContainer from "./usersPages/createPlaylist/create_playlist.container";
+import UpdatePlaylistContainer from "./usersPages/updatePlaylist/containers/update_playlist.container";
 
 export default function AppRouter() {
   return (
@@ -38,6 +39,14 @@ export default function AppRouter() {
           element={
             <App>
               <PlaylistPageContainer />
+            </App>
+          }
+        />
+        <Route
+          path="/playlists/update/:id"
+          element={
+            <App>
+              <UpdatePlaylistContainer />
             </App>
           }
         />

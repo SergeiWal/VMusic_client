@@ -1,25 +1,28 @@
-import { Playlist } from "../../store/reducers/playlists.reducer";
+import { Playlist } from "../../../store/reducers/playlists.reducer";
 
 type UpdateNameProps = {
   name: string;
+  message: string;
   setName: (str: string) => void;
   updateHandler: () => void;
 };
 
 export default function UpdateName({
   name,
+  message,
   setName,
   updateHandler,
 }: UpdateNameProps) {
   return (
     <div className="updateNameForm">
       <form>
-        <div className="formInput playlistInput">
+        <div className="formInput updateInput">
           <label>
-            Playlists name:
+            Change playlists name:
+            <br />
             <input
               type="text"
-              placeholder="playlist"
+              placeholder="playlist name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -29,6 +32,7 @@ export default function UpdateName({
             CHANGE
           </button>
         </div>
+        <div className="errorMessage">{message}</div>
       </form>
     </div>
   );

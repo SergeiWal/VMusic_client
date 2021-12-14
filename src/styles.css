@@ -143,3 +143,31 @@ body::-webkit-scrollbar {
   border: 2px solid #000;
   width: 400px;
 }
+
+.updatePage {
+  margin: 70px 40px;
+}
+
+.updateHeader {
+  font-size: 20px;
+  padding: 10px;
+  text-align: start;
+  border-bottom: 2px #000 solid;
+}
+
+.updateInput {
+  text-align: start;
+}
+
+.updateNameForm {
+  padding: 15px;
+  border-bottom: 2px #000 solid;
+}
+
+.songsPlaylistList {
+  margin: 10px 100px;
+}
+
+.songsPlaylistList::-webkit-scrollbar {
+  display: none;
+}
