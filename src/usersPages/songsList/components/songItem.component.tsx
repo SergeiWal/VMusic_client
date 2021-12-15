@@ -19,9 +19,15 @@ export default function SongItem({ song, isPlay, playHandler }: SongItemProps) {
         </div>
         <Button onClick={playHandler} color="inherit">
           {isPlay ? (
-            <PauseCircleFilledOutlinedIcon fontSize="large" />
+            <PauseCircleFilledOutlinedIcon
+              fontSize="large"
+              sx={{ color: "#009e71" }}
+            />
           ) : (
-            <PlayCircleFilledOutlinedIcon fontSize="large" />
+            <PlayCircleFilledOutlinedIcon
+              fontSize="large"
+              sx={{ color: "#009e71" }}
+            />
           )}
         </Button>
       </CardContent>

@@ -30,7 +30,7 @@ export default function SongList({ songs }: SongListProps) {
     <List
       className="songsList"
       itemData={songsList}
-      height={WINDOW_HEIGHT}
+      height={600}
       itemCount={songsList.length}
       itemSize={100}
       width={500}

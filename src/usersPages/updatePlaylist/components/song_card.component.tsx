@@ -23,9 +23,9 @@ export default function SongCard({
         </div>
         <Button onClick={clickHandler} color="inherit">
           {isExist ? (
-            <RemoveCircleIcon fontSize="large" />
+            <RemoveCircleIcon fontSize="large" sx={{ color: "#009e71" }} />
           ) : (
-            <AddCircleIcon fontSize="large" />
+            <AddCircleIcon fontSize="large" sx={{ color: "#009e71" }} />
           )}
         </Button>
       </CardContent>

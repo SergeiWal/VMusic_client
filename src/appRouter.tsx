@@ -5,8 +5,16 @@ import PlaylistsColectionContainer from "./usersPages/playlistList/playlist_coll
 import PlaylistPageContainer from "./usersPages/playlist/playlist_page.container";
 import CreatePlaylistContainer from "./usersPages/createPlaylist/create_playlist.container";
 import UpdatePlaylistContainer from "./usersPages/updatePlaylist/containers/update_playlist.container";
+import { useAppSelector } from "./store/store";
+import SongAdminListContainer from "./adminPages/songs/containers/songAdminList.container";
+import AdminSongs from "./adminPages/songs/components/adminSongs.component";
+import AddAuthorContainer from "./adminPages/authors/addAuthor.container";
+import UsersListContainer from "./adminPages/users/userList.container";
 
 export default function AppRouter() {
+  const {
+    auth: { user },
+  } = useAppSelector((state) => state);
   return (
     <BrowserRouter>
       <Routes>
@@ -14,7 +22,11 @@ export default function AppRouter() {
           path="/"
           element={
             <App>
-              <SongListContainer />
+              {user && user.role === "admin" ? (
+                <AdminSongs />
+              ) : (
+                <SongListContainer />
+              )}
             </App>
           }
         />
@@ -55,6 +67,30 @@ export default function AppRouter() {
           element={
             <App>
               <CreatePlaylistContainer />
+            </App>
+          }
+        />
+        <Route
+          path="/songs"
+          element={
+            <App>
+              <AdminSongs />
+            </App>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <App>
+              <UsersListContainer />
+            </App>
+          }
+        />
+        <Route
+          path="/authors"
+          element={
+            <App>
+              <AddAuthorContainer />
             </App>
           }
         />

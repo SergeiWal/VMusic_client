@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import "./App.css";
+import AdminHeader from "./header/admin.header";
 import UserHeader from "./header/user.header";
 import SignInContainer from "./signInUp/signIn.container";
 import { useAppSelector } from "./store/store";
@@ -11,12 +12,12 @@ type AppPropsType = {
 
 function App({ children }: AppPropsType) {
   const {
-    auth: { isAuth },
+    auth: { isAuth, user },
   } = useAppSelector((state) => state);
 
   return isAuth ? (
     <Fragment>
-      <UserHeader />
+      {user && user.role === "admin" ? <AdminHeader /> : <UserHeader />}
       <div className="App">{children}</div>
     </Fragment>
   ) : (

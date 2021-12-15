@@ -1,8 +1,10 @@
 import axios from "axios";
 import { SignInPayload } from "../signInUp/signIn.action";
 import { User } from "./reducers/auth.reducer";
+import { AddAuthorPayload } from "./reducers/authors.reducer";
 import { CreatePayload, UpdateNamePayload } from "./reducers/playlists.reducer";
 import { AddDeleteSongToPlaylistPayload } from "./reducers/playlist_songs.reducer";
+import { AddSongPayload } from "./reducers/songs.reducer";
 
 const instance = axios.create({
   baseURL: "http://localhost:3004",
@@ -58,10 +60,50 @@ export const deleteSongFromPlaylist = async ({
   return response.data;
 };
 
+export const deleteSong = async (id: number) => {
+  const response = await instance.delete(`/songs/${id}`);
+  return response.data;
+};
+
+export const addSong = async (body: AddSongPayload) => {
+  const response = await instance.post(`/songs`, body);
+  return response.data;
+};
+
 export const updatePlaylistName = async ({
   playlist_id,
   name,
 }: UpdateNamePayload) => {
   const response = await instance.patch(`/playlists/${playlist_id}/${name}`);
+  return response.data;
+};
+
+export const getUsers = async () => {
+  const response = await instance.get("/users");
+  return response.data;
+};
+
+export const deleteUser = async (id: number) => {
+  const response = await instance.delete(`/users/${id}`);
+  return response.data;
+};
+
+export const makeAdmin = async (id: number) => {
+  const response = await instance.patch(`/users/${id}`);
+  return response.data;
+};
+
+export const getGenres = async () => {
+  const response = await instance.get("/genres");
+  return response.data;
+};
+
+export const getAuthors = async () => {
+  const response = await instance.get("/authors");
+  return response.data;
+};
+
+export const addAuthor = async (body: AddAuthorPayload) => {
+  const response = await instance.post("/authors", body);
   return response.data;
 };

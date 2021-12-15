@@ -25,12 +25,12 @@ export default function PlaylistPage({
         <div className="playlistsButtons">
           <Link to={`/playlists/update/${id}`} className="buttonLink">
             <Button color="inherit">
-              <SettingsIcon fontSize="large" />
+              <SettingsIcon fontSize="large" sx={{ color: "#009e71" }} />
             </Button>
           </Link>
           <Link to={"/playlists"} className="buttonLink">
             <Button color="inherit" onClick={deleteBtnHandler}>
-              <DeleteIcon fontSize="large" />
+              <DeleteIcon fontSize="large" sx={{ color: "#009e71" }} />
             </Button>
           </Link>
         </div>

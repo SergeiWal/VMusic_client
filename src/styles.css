@@ -1,3 +1,7 @@
+body {
+  background-image: url(https://img.youscreen.ru/wall/14977965841017/14977965841017_1920x1200.jpg);
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -8,10 +12,19 @@ body::-webkit-scrollbar {
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  background: #000;
-  padding: 12px 7px;
+  justify-content: space-between;
+  background: #009e71;
+  padding: 10px 7px;
   z-index: 1000;
+}
+
+.header__menu {
+  display: flex;
+  margin: 0 10px;
+}
+
+.logOut {
+  margin: 0 10px;
 }
 
 .headerItems {
@@ -44,6 +57,7 @@ body::-webkit-scrollbar {
 .songsCard {
   display: flex;
   justify-content: space-between;
+  text-align: start;
 }
 
 .signInForm {
@@ -55,6 +69,7 @@ body::-webkit-scrollbar {
 .formInput {
   margin-top: 20px;
   font-size: 18px;
+  color: #009e71;
 }
 
 .formInput input {
@@ -62,12 +77,13 @@ body::-webkit-scrollbar {
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
+  border: 2px solid #009e71;
 }
 
 .signInButton {
   font-size: 18px;
   color: #fff;
-  background: #000;
+  background: #009e71;
   width: 120px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -76,7 +92,7 @@ body::-webkit-scrollbar {
 
 .signInButton:hover {
   cursor: pointer;
-  background: #2e3033;
+  background: #00cc92;
 }
 
 .playlistsCollection {
@@ -109,6 +125,7 @@ body::-webkit-scrollbar {
 
 .playlistView {
   margin: 90px 100px;
+  max-width: 900px;
 }
 
 .playlistView > *.songsList {
@@ -118,6 +135,7 @@ body::-webkit-scrollbar {
 .playlistHeader {
   display: flex;
   justify-content: space-between;
+  color: #000;
   font-size: 20px;
   padding: 10px;
   border-bottom: 2px solid #000;
@@ -140,7 +158,8 @@ body::-webkit-scrollbar {
   text-align: start;
   padding: 20px;
   border-radius: 5px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
+  background-color: #fff;
   width: 400px;
 }
 
@@ -152,6 +171,7 @@ body::-webkit-scrollbar {
   font-size: 20px;
   padding: 10px;
   text-align: start;
+  width: 900px;
   border-bottom: 2px #000 solid;
 }
 
@@ -161,6 +181,7 @@ body::-webkit-scrollbar {
 
 .updateNameForm {
   padding: 15px;
+  width: 900px;
   border-bottom: 2px #000 solid;
 }
 
@@ -170,4 +191,37 @@ body::-webkit-scrollbar {
 
 .songsPlaylistList::-webkit-scrollbar {
   display: none;
+}
+
+.songAdminBox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.createSongForm {
+  margin: 70px 150px 0 0;
+  text-align: start;
+}
+
+.FormWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.addAuthorForm {
+  margin: 90px 100px;
+  text-align: start;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.addAuthorForm form > * {
+  margin: 10px 0;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: flex-start;
 }

@@ -1,4 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
+import { logOutAction } from "../../header/header.actions";
 import {
   signInFailedAction,
   signInSuccessAction,
@@ -29,6 +30,7 @@ export default function AuthReducer(
   switch (action.type) {
     case signInSuccessAction.type:
       return { status: true, isAuth: true, user: action.payload };
+    case logOutAction.type:
     case signInFailedAction.type:
       return { status: false, isAuth: false, user: null };
     default:

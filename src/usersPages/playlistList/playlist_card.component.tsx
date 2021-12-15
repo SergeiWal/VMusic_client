@@ -12,9 +12,9 @@ export default function PlaylistCard({
 }: PlaylistCardProps) {
   return (
     <Link to={`/playlists/${id}`} className="buttonLink">
-      <Card sx={{ maxWidth: 345 }} className="playlistCard">
+      <Card sx={{ maxWidth: 345, minWidth: 120 }} className="playlistCard">
         <CardActionArea>
-          <AlbumSharpIcon style={{ fontSize: 48 }} />
+          <AlbumSharpIcon style={{ fontSize: 48 }} sx={{ color: "#009e71" }} />
           <CardContent>
             <div className="playlistName">{name}</div>
           </CardContent>

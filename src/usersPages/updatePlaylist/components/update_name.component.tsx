@@ -16,7 +16,7 @@ export default function UpdateName({
   return (
     <div className="updateNameForm">
       <form>
-        <div className="formInput updateInput">
+        <div className="formInput updateInput" style={{ color: "#000" }}>
           <label>
             Change playlists name:
             <br />
