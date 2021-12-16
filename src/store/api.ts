@@ -5,6 +5,7 @@ import { AddAuthorPayload } from "./reducers/authors.reducer";
 import { CreatePayload, UpdateNamePayload } from "./reducers/playlists.reducer";
 import { AddDeleteSongToPlaylistPayload } from "./reducers/playlist_songs.reducer";
 import { AddSongPayload } from "./reducers/songs.reducer";
+import { CreateUserPayload } from "./reducers/userc.reducer";
 
 const instance = axios.create({
   baseURL: "http://localhost:3004",
@@ -66,6 +67,7 @@ export const deleteSong = async (id: number) => {
 };
 
 export const addSong = async (body: AddSongPayload) => {
+  console.log(body);
   const response = await instance.post(`/songs`, body);
   return response.data;
 };
@@ -80,6 +82,11 @@ export const updatePlaylistName = async ({
 
 export const getUsers = async () => {
   const response = await instance.get("/users");
+  return response.data;
+};
+
+export const createUser = async (body: CreateUserPayload) => {
+  const response = await instance.post("/users", body);
   return response.data;
 };
 

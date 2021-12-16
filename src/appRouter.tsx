@@ -10,6 +10,7 @@ import SongAdminListContainer from "./adminPages/songs/containers/songAdminList.
 import AdminSongs from "./adminPages/songs/components/adminSongs.component";
 import AddAuthorContainer from "./adminPages/authors/addAuthor.container";
 import UsersListContainer from "./adminPages/users/userList.container";
+import SignUpContainer from "./signInUp/signUp.container";
 
 export default function AppRouter() {
   const {
@@ -94,6 +95,7 @@ export default function AppRouter() {
             </App>
           }
         />
+        <Route path="/signUp" element={<SignUpContainer />} />
       </Routes>
     </BrowserRouter>
   );

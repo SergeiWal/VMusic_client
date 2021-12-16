@@ -1,23 +1,26 @@
-import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export type SignInProps = {
-  status: boolean;
+export type SignUpProps = {
+  status: string;
   username: string;
   password: string;
+  repeatePass: string;
   setUsername: (str: string) => void;
   setPassword: (str: string) => void;
-  signInHandler: () => void;
+  setRepeatePassword: (str: string) => void;
+  signUpHandler: () => void;
 };
 
-export default function SignIn({
+export default function SignUp({
   status,
   username,
   password,
-  setPassword,
+  repeatePass,
   setUsername,
-  signInHandler,
-}: SignInProps) {
+  setPassword,
+  signUpHandler,
+  setRepeatePassword,
+}: SignUpProps) {
   return (
     <div className="fromWrapper">
       <div className="signInForm">
@@ -46,21 +49,31 @@ export default function SignIn({
                 required
               />
             </label>
+            <br />
+            <label>
+              Repeat password:
+              <br />
+              <input
+                type="password"
+                placeholder="Password"
+                value={repeatePass}
+                onChange={(e) => setRepeatePassword(e.target.value)}
+                required
+              />
+            </label>
           </div>
           <div className="formButton">
-            <button className="signInButton" onClick={signInHandler}>
-              SIGN IN
+            <button className="signInButton" onClick={signUpHandler}>
+              SIGN UP
             </button>
           </div>
           <div className="formLink">
-            <Link to="/signUp" className="linkButton">
-              SIGN UP
+            <Link to="/" className="linkButton">
+              SIGN IN
             </Link>
           </div>
         </form>
-        <div className="errorMessage">
-          {status ? "" : "Username or password is not valid"}
-        </div>
+        <div className="errorMessage">{status}</div>
       </div>
     </div>
   );

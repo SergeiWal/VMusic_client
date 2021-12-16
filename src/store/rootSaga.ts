@@ -4,6 +4,8 @@ import { Action, PayloadAction } from "@reduxjs/toolkit";
 import * as api from "./api";
 import { Song } from "../usersPages/songsList/types";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
+import { addSongSuccessAction } from "../adminPages/songs/admin_songs.actions";
+import { getSongsAction } from "../usersPages/songsList/actions";
 
 type ResultType = Song | Song[];
 type ApiType = { [key: string]: any };
@@ -39,12 +41,17 @@ function* requestSagaWorker(action: PayloadAction<any>) {
   }
 }
 
+function* addSongWorker() {
+  yield put({ type: getSongsAction.type });
+}
+
 export function* rootSagaWatcher() {
   yield all([
     takeEvery(
       (action: Action) => /REQUEST$/.test(action.type),
       requestSagaWorker
     ),
+    takeEvery(addSongSuccessAction, addSongWorker),
   ]);
 }
 

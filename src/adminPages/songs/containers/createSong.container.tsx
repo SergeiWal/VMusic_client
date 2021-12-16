@@ -7,6 +7,7 @@ import {
 } from "../admin_songs.actions";
 import CreateSongComponent from "../components/createSong.component";
 import { SelectChangeEvent } from "@mui/material/Select";
+import { getSongsAction } from "../../../usersPages/songsList/actions";
 
 export default function CreateSongContainer() {
   const { authors, genres } = useAppSelector((state) => state);
@@ -26,11 +27,7 @@ export default function CreateSongContainer() {
   };
 
   const clickHandler = () => {
-    if (name.length > 4 && source.length > 0) {
-      dispatch(addSongAction({ name, source, genre, author }));
-    } else {
-      setMessage("Enter all fields");
-    }
+    dispatch(addSongAction({ name, source, genre, author }));
     clearFields();
   };
 

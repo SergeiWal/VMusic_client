@@ -26,7 +26,6 @@ export default function songsReducer(
     case getSongsSuccessAction.type:
       return [...action.payload];
     case addSongSuccessAction.type:
-      return [...state, action.payload];
     case deleteSongSuccessAction.type:
       return [...state];
     case addSongFailedAction.type:
